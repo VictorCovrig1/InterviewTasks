@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36015.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindElementsForSum", "FindElementsForSum\FindElementsForSum.csproj", "{17111D51-EF0F-471B-B246-424B9FEE15A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindElementsForSumTests", "FindElementsForSumTests\FindElementsForSumTests.csproj", "{811C7573-E8D3-44A5-9E05-209F1E884068}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17111D51-EF0F-471B-B246-424B9FEE15A4} = {17111D51-EF0F-471B-B246-424B9FEE15A4}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17111D51-EF0F-471B-B246-424B9FEE15A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17111D51-EF0F-471B-B246-424B9FEE15A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17111D51-EF0F-471B-B246-424B9FEE15A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17111D51-EF0F-471B-B246-424B9FEE15A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{811C7573-E8D3-44A5-9E05-209F1E884068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811C7573-E8D3-44A5-9E05-209F1E884068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811C7573-E8D3-44A5-9E05-209F1E884068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811C7573-E8D3-44A5-9E05-209F1E884068}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C903D0D2-FFA2-4FF5-ADD5-1BFFADA70B49}
+	EndGlobalSection
+EndGlobal

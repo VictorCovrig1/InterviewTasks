@@ -1,0 +1,9 @@
+@EmployeeService_HostAddress = http://localhost:5113
+
+GET {{EmployeeService_HostAddress}}/api/Employee/16
+Accept: application/json
+
+###
+
+
+

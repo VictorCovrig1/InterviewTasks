@@ -1,0 +1,67 @@
+﻿CREATE DATABASE TestDb;
+
+USE TestDb;
+
+DROP TABLE PRODUCTS
+DROP TABLE CATEGORIES
+DROP TABLE PRODUCTS_CATEGORIES
+
+CREATE TABLE PRODUCTS (
+	ID INT NOT NULL IDENTITY(1,1),
+	NAME VARCHAR(100) NOT NULL,
+	PRICE MONEY NOT NULL,
+	IS_IN_STOCK BIT NULL,
+	QUANTITY INT NULL,
+	PRIMARY KEY (ID)
+);
+
+CREATE TABLE CATEGORIES (
+	ID INT NOT NULL IDENTITY(1,1),
+	TITLE VARCHAR(100) NOT NULL,
+	DESCRIPTION VARCHAR(MAX) NULL,
+	IS_ACTIVE BIT NULL,
+	PRIMARY KEY (ID)
+);
+
+CREATE TABLE PRODUCTS_CATEGORIES (
+	PRODUCT_ID INT FOREIGN KEY REFERENCES PRODUCTS(ID) NOT NULL,
+	CATEGORY_ID INT FOREIGN KEY REFERENCES CATEGORIES(ID) NOT NULL,
+);
+
+-- Insert categories
+INSERT INTO CATEGORIES (TITLE, DESCRIPTION, IS_ACTIVE)
+VALUES 
+  ('Electronics', 'Devices and gadgets', 1),
+  ('Books', 'Printed and digital books', 1),
+  ('Clothing', 'Apparel for men and women', 1),
+  ('Toys', 'Toys and games for kids', 0);
+
+-- Insert products
+INSERT INTO PRODUCTS (NAME, PRICE, IS_IN_STOCK, QUANTITY)
+VALUES
+  ('Smartphone', 699.99, 1, 50),
+  ('Laptop', 1299.50, 1, 30),
+  ('Jeans', 49.99, 1, 100),
+  ('Children''s Puzzle', 14.99, 1, 75),
+  ('E-Book Reader', 129.99, 0, 0),
+  ('Fantasy Novel', 19.95, 1, 200),
+  ('Wireless Mouse', 24.99, 1, 60),
+  ('Notebook', 2.49, 1, 500),
+  ('Pen Pack', 5.99, 1, 300), 
+  ('Desk Organizer', 15.50, 1, 80); 
+
+-- Assign products to categories
+INSERT INTO PRODUCTS_CATEGORIES (PRODUCT_ID, CATEGORY_ID)
+VALUES 
+  (1, 1),
+  (2, 1),
+  (3, 3),
+  (4, 4),
+  (5, 1),
+  (6, 2),
+  (7, 1);
+
+SELECT prod.ID, NAME as PRODUCT_NAME, TITLE as CATEGORY_TITLE
+FROM PRODUCTS as prod
+LEFT JOIN PRODUCTS_CATEGORIES ON prod.ID = PRODUCT_ID
+LEFT JOIN CATEGORIES as cat ON cat.ID = CATEGORY_ID
