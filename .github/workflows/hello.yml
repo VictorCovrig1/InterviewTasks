@@ -1,0 +1,23 @@
+name: hello
+
+on: push
+
+jobs:
+  initial:
+  
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: uses checkout workflow
+        uses: actions/checkout@v4
+    
+      - name: print one line
+        run: echo Hello World
+        
+      - name: print multiple lines
+        run: echo Print one line, 
+             echo Print another line
+      
+
+      
+    
