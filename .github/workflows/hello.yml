@@ -1,6 +1,9 @@
 name: hello
 
-on: push
+on: 
+  push:
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   initial:
@@ -13,7 +16,7 @@ jobs:
     
       - name: print one line
         run: sleep 5
-               
+
       - name: print multiple lines
         run: echo Print one line, 
              echo Print another line
