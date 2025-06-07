@@ -17,4 +17,4 @@ jobs:
       - run: dotnet --list-runtimes
       - run: dotnet --list-sdks
       - run: dotnet build
-        working-directory: ./CalculateAreaLibrary/CalculateAreaLibrary
+        working-directory: "./CalculateAreaLibrary (Task 1)/CalculateAreaLibrary"
