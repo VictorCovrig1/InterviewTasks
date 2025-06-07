@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - ".github/workflows/task1-build.yml"
-      - "CalculateAreaLibrary/CalculateAreaLibrary/**"
+      - "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
   workflow_dispatch:
 
 jobs:
