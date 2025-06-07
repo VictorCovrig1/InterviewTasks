@@ -8,21 +8,15 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-      #- name: uses checkout workflow
-        #uses: actions/checkout@v4
+      - name: uses checkout workflow
+        uses: actions/checkout@v4
     
       - name: print one line
-        run: echo Hello World
-        
+        run: sleep 5
+               
       - name: print multiple lines
         run: echo Print one line, 
              echo Print another line
-      - name: use node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
-      - run: npm install
-      - run: npm run build
       
 
       

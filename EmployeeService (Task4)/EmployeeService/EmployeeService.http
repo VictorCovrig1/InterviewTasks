@@ -6,4 +6,48 @@ Accept: application/json
 ###
 
 
+POST {{EmployeeService_HostAddress}}/api/Employee
+Accept: application/json
+Content-Type: application/json
+
+{
+    "DepartmentId": 1,
+    "FunctionId": 1,
+    "PostTitle": "Dev junior",
+    "FirstName": "Victor",
+    "LastName": "Covrig",
+    "BirthDate": "1988-07-12T00:00:00",
+    "EmploymentDate": "2020-07-12T00:00:00", 
+    "Salary": 10000
+}
+
+###
+
+DELETE {{EmployeeService_HostAddress}}/api/Employee/16
+Accept: application/json
+
+###
+
+PUT {{EmployeeService_HostAddress}}/api/Employee
+Accept: application/json
+Content-Type: application/json
+
+{
+    "EmployeeId": 17,
+    "DepartmentId": 1,
+    "FunctionId": 1,
+    "PostTitle": "Dev junior",
+    "FirstName": "Victor",
+    "LastName": "Covrig",
+    "BirthDate": "1988-07-12T00:00:00",
+    "EmploymentDate": "2020-07-12T00:00:00", 
+    "Salary": 10000
+}
+
+###
+
+GET {{EmployeeService_HostAddress}}/api/Employee?pageIndex=1&pageSize=4&sortOrder=asc&filterKey=victor
+Accept: application/json
+
+
 

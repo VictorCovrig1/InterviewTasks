@@ -57,7 +57,7 @@ namespace EmployeeService.Controllers
                 BadRequest();
         }
 
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> CreateEmployee(EmployeeCreateDto employee)
         {
             return await _commandService.CreateEmployeeAsync(employee) ?
