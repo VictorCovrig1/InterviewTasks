@@ -21,8 +21,11 @@ jobs:
 
       - run: dotnet build
         working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"
+
+      - run: dotnet build
+        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaTests"
       
       - name: apply tests
         run: dotnet test
-        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"
+        working-directory: "./CalculateAreaLibrary (Task1)"
       
