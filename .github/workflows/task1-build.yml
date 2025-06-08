@@ -14,7 +14,14 @@ jobs:
     steps:
       - name: use checkout action
         uses: actions/checkout@v4
+
       - run: dotnet --list-runtimes
+
       - run: dotnet --list-sdks
+
       - run: dotnet build
         working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"
+      
+      - name: apply tests
+        run: dotnet test
+      
