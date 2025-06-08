@@ -15,16 +15,17 @@ jobs:
       - name: use checkout action
         uses: actions/checkout@v4
 
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.300-preview.0.25177.5"
+
       - run: dotnet --list-runtimes
 
       - run: dotnet --list-sdks
 
       - run: dotnet build
         working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"
-      
-      - run: dotnet --list-runtimes
-
-      - run: dotnet --list-sdks
 
       - run: dotnet build
         working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaTests"
