@@ -24,4 +24,5 @@ jobs:
       
       - name: apply tests
         run: dotnet test
+        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"
       
