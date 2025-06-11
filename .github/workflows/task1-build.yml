@@ -25,12 +25,12 @@ jobs:
           dotnet --list-sdks
 
       - run: dotnet build CalculateAreaLibrary
-        working-directory: "CalculateAreaLibrary (Task1)\\CalculateAreaLibrary"
+        working-directory: ".\\CalculateAreaLibrary (Task1)\\CalculateAreaLibrary"
 
       - run: dotnet build CalculateAreaTests
-        working-directory: "CalculateAreaLibrary (Task1)\\CalculateAreaTests"
+        working-directory: ".\\CalculateAreaLibrary (Task1)\\CalculateAreaTests"
       
       - name: apply tests
         run: dotnet test
-        working-directory: "\\CalculateAreaLibrary (Task1)"
+        working-directory: ".\\CalculateAreaLibrary (Task1)"
       
