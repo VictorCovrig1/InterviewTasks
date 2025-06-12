@@ -22,7 +22,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           
           script: |
-            const issueNumber = context.issue.number;
+            const issueNumber = context.issue.number || 2;
 
             console.log(`issue number: ${issueNumber}`);
 
@@ -30,7 +30,7 @@ jobs:
             const owner = context.repo.owner;
 
             // get issue
-            const issue = github.rest.issues.get({
+            const issue = await github.rest.issues.get({
               repo, owner, issueNumber
             });
 
