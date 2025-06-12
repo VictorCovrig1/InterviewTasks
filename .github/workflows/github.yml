@@ -10,9 +10,13 @@ jobs:
   cli:
     runs-on: ubuntu-latest
 
+    env:
+      GH_TOKEN: "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"
+
     steps:
       - run: env
       - run: gh --version
+      - uses: actions/checkout@v4
       - run: gh auth status
       - run: gh repo list
       - run: gh workflow list
