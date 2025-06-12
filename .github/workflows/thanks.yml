@@ -26,22 +26,18 @@ jobs:
 
             console.log(`issue number: ${issueNumber}`);
 
-            const repo = context.repo.repo;
-            const owner = context.repo.owner;
-
-            console.log(`repo: {repo}`);
-            console.log(`owner: {repo}`);
+            const { repo, owner } = context.repo;
 
             // get issue
             const issue = await github.rest.issues.get({
-              repo, owner, issueNumber
+              owner, repo, issueNumber
             });
 
             console.log(`issue: ${issue}`);
 
             // create comment
             const comment = await github.rest.issues.createComment({
-              repo, owner, issueNumber,
+              owner, repo, issueNumber,
               body: 'Thanks for your contribution!'
             });
 
@@ -50,7 +46,7 @@ jobs:
 
             // add label
             github.rest.issues.addLabels({
-              repo, owner, issueNumber,
+              owner, repo, issueNumber,
               labels: ['todo-review']
             });
 
