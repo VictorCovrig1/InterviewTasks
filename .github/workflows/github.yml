@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GH_TOKEN: "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"
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - run: env
