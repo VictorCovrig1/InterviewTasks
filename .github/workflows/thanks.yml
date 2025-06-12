@@ -37,7 +37,7 @@ jobs:
             console.log(`issue: ${issue}`);
 
             // create comment
-            const comment = github.rest.issues.createComment({
+            const comment = await github.rest.issues.createComment({
               repo, owner, issueNumber,
               body: 'Thanks for your contribution!'
             });
