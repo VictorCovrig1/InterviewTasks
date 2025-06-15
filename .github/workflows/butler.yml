@@ -9,6 +9,13 @@ on:
     types: [created]
 
 jobs:
+  log:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo 'comment ${{ github.event.comment.body }}'
+      - run: echo ${{ toJson(github.event) }}
+
   chat:
     if: startsWith(github.event.comment.body, '/chat')
 
