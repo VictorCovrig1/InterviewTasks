@@ -14,11 +14,21 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: Debug comment body
-        run: "echo Comment body is: ${{ github.event.comment.body }}"
       - uses: ca-dp/code-butler@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPEN_API_KEY }}
           cmd: chat
           comment_body: ${{ github.event.comment.body }}
+  
+  review:
+    if: startsWith(github.event.comment.body, '/review')
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ca-dp/code-butler@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPEN_API_KEY }}
+          cmd: review
+  
