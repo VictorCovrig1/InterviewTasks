@@ -4,17 +4,18 @@ on:
   issue_comment:
     types: [created]
 
-permissions: 
+permissions:
   pull-requests: write
 
 jobs:
   chat:
-    runs-on: ubuntu-latest
+    if: github.event.issue.pull_request
 
+    runs-on: ubuntu-latest
     steps:
       - uses: ca-dp/code-butler@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPEN_API_KEY }}
           cmd: chat
-          comment_body: "${{ github.event.comment.body }}"
+          comment_body: ${{ github.event.comment.body }}
