@@ -10,7 +10,7 @@ on:
 
 jobs:
   chat:
-    if: github.event.issue.pull_request
+    if: startsWith(github.event.comment.body, '/chat')
 
     runs-on: ubuntu-latest
     steps:
