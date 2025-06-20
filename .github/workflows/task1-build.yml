@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"  
 
     steps:
       - name: use checkout action
@@ -20,12 +23,7 @@ jobs:
         with:
           dotnet-version: "9.0.300-preview.0.25177.5"
 
-      - run: | 
-          dotnet --list-runtimes
-          dotnet --list-sdks
-
       - run: dotnet build
-        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"
 
       - run: dotnet build
         working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaTests"
