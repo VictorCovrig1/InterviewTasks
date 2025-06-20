@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"  
+        working-directory: "./CalculateAreaLibrary (Task1)"  
 
     steps:
       - name: Use checkout action
@@ -25,6 +25,7 @@ jobs:
 
       - name: Build base project
         run: dotnet build
+        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"
 
       - name: Build test project
         run: dotnet build
@@ -37,7 +38,7 @@ jobs:
       - name: Save artifacts
         uses: actions/upload-artifact@v4
         with:
-          path: ./artifacts/artifacts
+          path: ./artifacts
           name: build
         
       
