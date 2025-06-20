@@ -15,7 +15,7 @@ jobs:
         working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"  
 
     steps:
-      - name: use checkout action
+      - name: Use checkout action
         uses: actions/checkout@v4
 
       - name: Setup .NET 9
@@ -23,12 +23,21 @@ jobs:
         with:
           dotnet-version: "9.0.300-preview.0.25177.5"
 
-      - run: dotnet build
+      - name: Build base project
+        run: dotnet build
 
-      - run: dotnet build
+      - name: Build test project
+        run: dotnet build
         working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaTests"
       
-      - name: apply tests
+      - name: Apply tests
         run: dotnet test
         working-directory: "./CalculateAreaLibrary (Task1)"
+
+      - name: Save artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./artifacts/artifacts
+          name: build
+        
       
