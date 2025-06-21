@@ -40,7 +40,7 @@ jobs:
       - name: Save artifacts
         uses: actions/upload-artifact@v4
         with:
-          path: './CalculateAreaLibrary (Task1)CalculateAreaLibrary/Release'
+          path: './CalculateAreaLibrary (Task1)/CalculateAreaLibrary/Release'
           name: build
         
       
