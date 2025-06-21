@@ -9,7 +9,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: "./CalculateAreaLibrary (Task1)"  
@@ -41,6 +45,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: './CalculateAreaLibrary (Task1)/CalculateAreaLibrary/Release'
-          name: build
+          name: 'build-${{ matrix.os }}'
         
       
