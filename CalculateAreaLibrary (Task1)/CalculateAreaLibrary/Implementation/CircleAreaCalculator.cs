@@ -11,7 +11,7 @@ namespace CalculateAreaLibrary.Implementation
         {
             // In case radius is negative (invalid data) should throw exception
             if (radius <= 0)
-                throw new ArgumentException("Radius should be positive.");
+                throw new ArgumentException("Radius should be positive.");;
 
             // Initiate radius with the value passed from constructor
             _radius = radius;
