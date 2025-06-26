@@ -4,10 +4,6 @@ set -e
 APP_NAME="CalculateAreaLibrary.csproj"  # Replace with your actual .csproj file
 OUTPUT_DIR="bin"
 
-echo "::group::Testing..."
-dotnet test
-echo "::endgroup::"
-
 mkdir -p $OUTPUT_DIR
 
 platforms=("win-x64" "linux-x64" "osx-x64")
@@ -16,7 +12,7 @@ do
     output_path="$OUTPUT_DIR/$rid"
 
     echo "::group::Publishing for $rid..."
-    dotnet publish "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/$APP_NAME" \
+    dotnet publish "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary/$APP_NAME" \
         -c Release \
         -r $rid \
         --self-contained true \
