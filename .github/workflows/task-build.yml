@@ -3,12 +3,15 @@ name: task-build
 on:
   push:
     paths:
-      - ".github/workflows/task1-build.yml"
+      - ".github/workflows/task-build.yml"
       - "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
   workflow_dispatch:
 
 jobs:
   build:
+    permissions:
+      contents: write
+        
     strategy:
       matrix:
         os: [ ubuntu-latest, windows-latest, macos-latest ]
