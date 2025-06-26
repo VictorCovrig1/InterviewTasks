@@ -13,10 +13,10 @@ mkdir -p $OUTPUT_DIR
 platforms=("win-x64" "linux-x64" "osx-x64")
 for rid in "${platforms[@]}"
 do
-    output_name="$OUTPUT_DIR/$rid"
+    output_path="$OUTPUT_DIR/$rid"
 
     echo "::group::Publishing for $rid..."
-    dotnet publish $APP_NAME \
+    dotnet publish CalculateAreaLibrary/$APP_NAME \
         -c Release \
         -r $rid \
         --self-contained true \
