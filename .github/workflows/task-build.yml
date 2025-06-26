@@ -1,4 +1,4 @@
-name: task1-build
+name: task-build
 
 on:
   #push:
