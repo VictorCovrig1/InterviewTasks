@@ -12,7 +12,7 @@ do
     output_path="$OUTPUT_DIR/$rid"
 
     echo "::group::Publishing for $rid..."
-    dotnet publish "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary/$APP_NAME" \
+    dotnet publish "CalculateAreaLibrary/$APP_NAME" \
         -c Release \
         -r $rid \
         --self-contained true \
