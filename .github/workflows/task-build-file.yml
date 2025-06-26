@@ -1,10 +1,10 @@
 name: task-build-file
 
 on:
-  push:
-    paths:
-      - ".github/workflows/task-build-file.yml"
-      - "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
+  # push:
+  #   paths:
+  #     - ".github/workflows/task-build-file.yml"
+  #     - "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
   workflow_dispatch:
 
 jobs:

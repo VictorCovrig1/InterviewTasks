@@ -1,10 +1,10 @@
 name: task-build
 
 on:
-  #push:
-    #paths:
-      #- ".github/workflows/task1-build.yml"
-      #- "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
+  push:
+    paths:
+      - ".github/workflows/task1-build.yml"
+      - "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
   workflow_dispatch:
 
 jobs:
@@ -41,10 +41,18 @@ jobs:
 
       - name: Publish
         run: dotnet publish 'CalculateAreaLibrary/CalculateAreaLibrary.csproj' -c Release -o 'CalculateAreaLibrary/Release' --nologo
-      - name: Save artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          path: './CalculateAreaLibrary (Task1)/CalculateAreaLibrary/Release'
-          name: 'build-${{ matrix.os }}'
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with: 
+          files: './CalculateAreaLibrary (Task1)/CalculateAreaLibrary/Release'
+          body: "Binaries for the CalculateAreaLibrary build"
+          tag_name: ${{ github.ref_name }}
+
+      # - name: Save artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     path: './CalculateAreaLibrary (Task1)/CalculateAreaLibrary/Release'
+      #     name: 'build-${{ matrix.os }}'
         
       
