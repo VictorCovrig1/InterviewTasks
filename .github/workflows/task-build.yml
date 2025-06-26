@@ -1,0 +1,50 @@
+name: task1-build
+
+on:
+  #push:
+    #paths:
+      #- ".github/workflows/task1-build.yml"
+      #- "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: "./CalculateAreaLibrary (Task1)"  
+
+    steps:
+      - name: Use checkout action
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.300-preview.0.25177.5"
+
+      - name: Build base project
+        run: dotnet build
+        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaLibrary"
+
+      - name: Build test project
+        run: dotnet build
+        working-directory: "./CalculateAreaLibrary (Task1)/CalculateAreaTests"
+      
+      - name: Apply tests
+        run: dotnet test
+        working-directory: "./CalculateAreaLibrary (Task1)"
+
+      - name: Publish
+        run: dotnet publish 'CalculateAreaLibrary/CalculateAreaLibrary.csproj' -c Release -o 'CalculateAreaLibrary/Release' --nologo
+      - name: Save artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: './CalculateAreaLibrary (Task1)/CalculateAreaLibrary/Release'
+          name: 'build-${{ matrix.os }}'
+        
+      

@@ -9,11 +9,8 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: "./CalculateAreaLibrary (Task1)"  
@@ -40,7 +37,8 @@ jobs:
         working-directory: "./CalculateAreaLibrary (Task1)"
 
       - name: Publish
-        run: dotnet publish 'CalculateAreaLibrary/CalculateAreaLibrary.csproj' -c Release -o 'CalculateAreaLibrary/Release' --nologo
+        run: ./build-xplat.sh
+        
       - name: Save artifacts
         uses: actions/upload-artifact@v4
         with:
