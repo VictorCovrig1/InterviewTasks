@@ -51,6 +51,7 @@ jobs:
           files: './CalculateAreaLibrary (Task1)/CalculateAreaLibrary/Release/*'
           body: "Binaries for the CalculateAreaLibrary build"
           tag_name: ${{ github.ref_name }}
+        if: startsWith(github.ref_name, 'refs/tags/')
 
       # - name: Save artifacts
       #   uses: actions/upload-artifact@v4
