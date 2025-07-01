@@ -6,7 +6,7 @@ defaults:
 on:
   push:
     paths:
-      - ".github/workflows/task-build.yml"
+      - ".github/workflows/task-container.yml"
       - "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
   workflow_dispatch:
 
