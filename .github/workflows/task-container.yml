@@ -1,0 +1,25 @@
+name: task-container
+defaults:
+  run:
+    working-directory: './CalculateAreaLibrary (Task1)'
+
+on:
+  push:
+    paths:
+      - ".github/workflows/task-build.yml"
+      - "CalculateAreaLibrary (Task1)/CalculateAreaLibrary/**"
+  workflow_dispatch:
+
+permissions:
+  packages: write
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker version
+      - run: docker build . -t calculatearea
+      - run: docker container run calculatearea --name calculatearea
+      
