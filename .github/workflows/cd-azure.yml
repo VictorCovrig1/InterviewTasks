@@ -1,0 +1,26 @@
+name: cd-azure
+
+on: 
+  push:
+    paths:
+      - ".github/workflows/cd-azure.yml"
+      - "EmployeeService (Task4)/EmployeeService/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: docker/setup-buildx-action@v3
+      - run: docker buildx ls
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_EMAIL }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
+      - run: docker build . -t calculatearea
+        working-directory: "EmployeeService (Task4)/EmployeeService"
+
