@@ -23,4 +23,16 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASS }}
       - run: docker build . -t calculatearea
         working-directory: "EmployeeService (Task4)/EmployeeService"
+  
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: build
+
+    steps:
+      - uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }} 
+
+
 
