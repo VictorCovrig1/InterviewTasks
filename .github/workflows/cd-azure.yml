@@ -34,10 +34,11 @@ jobs:
       - uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      # - uses: azure/webapps-deploy@v3
-      #   with:
-      #     app-name: EmployeeService
-      #     images: 
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: EmployeeService
+          images: victor435/employeeservice:latest
+          resource-group-name: MyResourceGroup
 
 
 
