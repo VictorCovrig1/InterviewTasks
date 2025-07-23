@@ -21,7 +21,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_EMAIL }}
           password: ${{ secrets.DOCKERHUB_PASS }}
-      - run: docker build . -t calculatearea |
+      - run: docker build . -t victor435/employeeservice |
+          
           docker push victor435/employeeservice
         working-directory: "EmployeeService (Task4)/EmployeeService"
   deploy:
