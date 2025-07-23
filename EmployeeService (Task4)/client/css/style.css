@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  width: max-content;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  background-color: blue;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.flex-list {
+  padding: 0;
+}
+
+.menu-item {
+  display: inline;
+  padding: 1rem 2rem;
+}
+
+.menu-item:hover {
+  background-color: rgb(59, 59, 246);
+}
+
+a {
+  color: antiquewhite;
+  text-decoration: none;
+  font-size: large;
+  font-weight: 500;
+}
+
+body {
+  background-color: rgb(195, 216, 235);
+}
+
+.carousel-list {
+  width: 100vw;
+  height: 50vh;
+  padding: 20px 80px;
+  display: flex;
+  gap: 4vw;
+}
