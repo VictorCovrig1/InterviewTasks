@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_EMAIL }}
           password: ${{ secrets.DOCKERHUB_PASS }}
       - run: docker build . -t calculatearea |
-          docker publish victor435/employeeservice
+          docker push victor435/employeeservice
         working-directory: "EmployeeService (Task4)/EmployeeService"
   deploy:
     runs-on: ubuntu-latest
