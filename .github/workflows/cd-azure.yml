@@ -38,7 +38,7 @@ jobs:
         with:
           app-name: EmployeeService
           images: victor435/employeeservice:latest
-          #resource-group-name: MyResourceGroup
+          resource-group-name: MyResourceGroup
 
 
 
