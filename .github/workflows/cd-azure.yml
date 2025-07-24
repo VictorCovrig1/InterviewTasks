@@ -27,7 +27,9 @@ jobs:
         working-directory: "EmployeeService (Task4)/EmployeeService"
   deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment: 
+      name: production
+      url: ${{ steps.deployment.outputs.webapp-url }}
     needs: build
 
     steps:
@@ -35,6 +37,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: azure/webapps-deploy@v3
+        id: deployment
         with:
           app-name: EmployeeService
           images: victor435/employeeservice:latest
