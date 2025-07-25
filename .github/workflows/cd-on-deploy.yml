@@ -3,7 +3,7 @@ on: deployment
 
 jobs:
   send-message:
-     runs-on: ubuntu
+     runs-on: ubuntu-latest
 
      steps:
       - name: Post text to a Slack channel
