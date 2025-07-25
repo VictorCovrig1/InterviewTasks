@@ -9,7 +9,6 @@ jobs:
       - name: Post text to a Slack channel
         run: |
           curl -X POST -H 'Content-type: application/json' \
-            --data '{"text":"Deployment complete! \
-              ${{ toJson(github.event) }}"}' \
+            --data '{"text":"Deployment complete!"}' \
             ${{ secrets.SLACK_WEBHOOK_URL }}
 
