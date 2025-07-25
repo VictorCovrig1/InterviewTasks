@@ -8,11 +8,9 @@ jobs:
      steps:
       - name: Post text to a Slack channel
         uses: slackapi/slack-github-action@v2.1.1
-        with:
-          method: chat.postMessage
-          token: ${{ secrets.SLACK_BOT_TOKEN }}
-          payload: |
-            channel: ${{ secrets.SLACK_CHANNEL_ID }}
-            text: Sucessful deployment
-            ${{ toJson(github.event) }}
+      - run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"Deployment complete! 
+              ${{ toJson(github.event) }}"}' \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
 

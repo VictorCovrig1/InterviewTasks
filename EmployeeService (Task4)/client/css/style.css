@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  width: max-content;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .header {
@@ -42,9 +42,8 @@ body {
 }
 
 .carousel-list {
-  width: 100vw;
   height: 50vh;
-  padding: 20px 80px;
+  padding: 40px 150px;
   display: flex;
   gap: 4vw;
 }
